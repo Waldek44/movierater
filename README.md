@@ -6,7 +6,8 @@
 
 * Django 2.1.2
 * pip 18.1
-* pytz 2018.5
+* Pytz 2018.5
+* Pillow 5.3.0
                                         
 1. Utworzenie projektu Django           
 **django-admin startproject movierator**    
