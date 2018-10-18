@@ -1,0 +1,11 @@
+body{
+background-color: #0D0F0C;
+color: #E9EDF2;}
+
+.alert{
+background-color: #99F2B2;
+color: #121314;
+padding: 2em;
+margin-top: 4em;
+font-style: italic;
+font-weight: bold;}
