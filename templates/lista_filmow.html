@@ -8,16 +8,12 @@
 </head>
 <body>
 <h1>Lista filmów</h1>
-<p>Tu mam wszystkie filmy, za pomocą pętli z użyciem zmiennej "filmowa" którą ustanowiłem w widoku.</p>
-
-{% if moze_ogladac%}
+<p>Wszystkie filmy</p>
     <ul>
         {% for film in filmowa %}
         <li>{{ film }}</li>
         {% endfor %}
-
     </ul>
-{% endif %}
 <p class="alert"> {{ text44 }} </p>
 
 </body>
