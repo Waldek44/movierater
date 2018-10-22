@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,12 +7,18 @@
 </head>
 <body>
 <h1>Lista filmów</h1>
+<a href="{% url 'nowy_film' %}">Dodaj nowy film</a>
+
 <p>Wszystkie filmy</p>
-    <ul>
-        {% for film in filmowa %}
-        <li>{{ film }}</li>
-        {% endfor %}
-    </ul>
+
+    {% for film in filmowa %}
+    <div>
+        <h2>{{ film }}</h2>
+        <a href="{% url 'edytuj_film' film.id %}">Edytuj film</a>
+        <a href="{% url 'usun_film' film.id %}">Usuń film</a>
+    </div>
+    {% endfor %}
+
 <p class="alert"> {{ text44 }} </p>
 
 </body>
