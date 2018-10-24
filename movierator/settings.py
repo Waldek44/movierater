@@ -123,3 +123,8 @@ STATICFILES_DIRS = ['moje_static']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'moje_media'
+
+# domyślnie po zalogowaniu użytkownika Django przenosi na /accounts/profile/
+# aby ustawić mu własne przekierowanie:
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'wszystkie_filmy'

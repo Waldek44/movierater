@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="{% static 'moj.css' %}">
 </head>
 <body>
+{% if user.is_authenticated %}      <!-- if sprawdza czy user jest zalogowany i wyświetla odpowiednie -->
+    <p>Witam {{ user.username }}</p>
+    <a href="{% url 'logout' %}">Wyloguj</a>
+{% else %}
+    <a href="{% url 'login' %}">Zaloguj</a>
+{% endif %}
+
 <h1>Lista filmów</h1>
 <a href="{% url 'nowy_film' %}">Dodaj nowy film</a>
 
