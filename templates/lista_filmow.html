@@ -1,32 +1,48 @@
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista filmów</title>
-    <link rel="stylesheet" href="{% static 'moj.css' %}">
-</head>
-<body>
-{% if user.is_authenticated %}      <!-- if sprawdza czy user jest zalogowany i wyświetla odpowiednie -->
-    <p>Witam {{ user.username }}</p>
-    <a href="{% url 'logout' %}">Wyloguj</a>
-{% else %}
-    <a href="{% url 'login' %}">Zaloguj</a>
-{% endif %}
+{% extends 'glowny.html' %}
+{% block title %} lista filmów {% endblock %}
 
-<h1>Lista filmów</h1>
-<a href="{% url 'nowy_film' %}">Dodaj nowy film</a>
+{% block body %}
 
-<p>Wszystkie filmy</p>
+<div class="jumbotron" style="background-color: #E9DFFA; color: #222">
+  <h1 class="display-4">
 
+        {% if user.is_authenticated %}      <!-- if sprawdza czy user jest zalogowany i wyświetla odpowiednie -->
+            <p>Witaj {{ user.username }}</p>
+            <p class="lead" style="color: #555">Pamiętaj wylogować się po zakończeniu sesji. <a class="btn btn-primary" href="{% url 'logout' %}">Wyloguj <i class="fas fa-sign-out-alt"></i></a></p>
+
+        {% else %}
+            <p class="lead">Aby uzyskać pełen dostęp do Movierater'a musisz się zalogować.</p>
+            <hr class="my-4">
+            <a class="btn btn-primary" href="{% url 'login' %}">Zaloguj <i class="fas fa-sign-in-alt"></i></a>
+        {% endif %}
+  </h1>
+    <hr class="my-4">
+     <h3>Lista filmów</h3>
+</div>
+
+
+<a class="btn btn-light" href="{% url 'nowy_film' %}">Dodaj nowy film <i class="fas fa-plus-square"></i></a>
+<br><br>
     {% for film in filmowa %}
-    <div>
-        <h2>{{ film }}</h2>
-        <a href="{% url 'edytuj_film' film.id %}">Edytuj film</a>
-        <a href="{% url 'usun_film' film.id %}">Usuń film</a>
-    </div>
+        <div class="card" >
+            <div class="card-body">
+                <img src="/media/{{ film.photo }}" alt="">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <h4>{{ film }}</h4>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="{% url 'edytuj_film' film.id %}"><i class="fas fa-2x fa-edit"></i></a>
+                        <a href="{% url 'usun_film' film.id %}"><i class="fas fa-2x fa-trash-alt"></i></a>
+                    </div>
+                    <div class="row">
+                    <p class="desc">{{ film.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     {% endfor %}
-
 <p class="alert"> {{ text44 }} </p>
-
-</body>
-</html>
+{% endblock %}

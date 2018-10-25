@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrapform',
     'main'
 ]
 
@@ -128,3 +129,4 @@ MEDIA_ROOT = 'moje_media'
 # aby ustawić mu własne przekierowanie:
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'wszystkie_filmy'
+LOGOUT_REDIRECT_URL = 'login'

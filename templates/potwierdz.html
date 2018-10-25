@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Usunięcie filmu</title>
-</head>
-<body>
-<h1>Czy na pewno chcesz usunąć {{ film.name }} ?</h1>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit"> Tak, usuń</button>
-</form>
-</body>
-</html>
+{% extends 'glowny.html' %}
+{% block title %} usuwanie {% endblock %}
+
+{% block body %}
+
+<div class="col-sm-6">
+    <div class="card " >
+          <div class="card-header">
+            <h3>Czy na pewno chcesz usunąć {{ film.name }} ?</h3>
+              <div class="alert alert-danger" role="alert">
+             Po potwierdzeniu film zostanie trwale usunięty z bazy danych Movierater
+            </div>
+          </div>
+
+            <div class="card-body">
+               <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <button type="submit" class="btn btn-warning">Tak <i class="fas fa-trash-alt"></i> </button>
+                            <a class="btn btn-light" href="{% url 'wszystkie_filmy' %}">Cofnij <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+               </form>
+          </div>
+    </div>
+</div>
+{% endblock %}

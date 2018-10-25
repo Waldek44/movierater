@@ -1,6 +1,7 @@
 body{
-background-color: #0D0F0C;
-color: #E9EDF2;}
+background-color: #999;
+color: #444;
+padding: 2em;}
 
 .alert{
 background-color: #99F2B2;
@@ -9,3 +10,18 @@ padding: 2em;
 margin-top: 4em;
 font-style: italic;
 font-weight: bold;}
+
+img {
+width: 150px;
+float: left;
+}
+
+.card {
+width: 800px;
+}
+
+.desc {
+font-size: 0.9em;
+margin: 0 25px;
+color: #555;
+}

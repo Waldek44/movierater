@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>logowanie</title>
-</head>
-<body>
-<h1>logowanie</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Zaloguj</button>
-</form>
-</body>
-</html>
+{% extends 'glowny.html' %}
+{% block title %} logowanie {% endblock %}
+{% load bootstrap %}
+
+{% block body %}
+<div class="col-sm-6">
+    <div class="card " >
+          <div class="card-header">
+            Logowanie użytkownika
+          </div>
+
+            <div class="card-body">
+               <form role="form" method="post">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <button type="submit" class="btn btn-outline-primary">Zaloguj <i class="fas fa-crow"></i></button>
+                        </div>
+                    </div>
+               </form>
+          </div>
+    </div>
+</div>
+{% endblock %}
