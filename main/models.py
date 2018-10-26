@@ -35,3 +35,8 @@ class Movie(models.Model):
     # jest on reprezentowany przez nazwę (name) i rok (year)
     def __str__(self):
         return str(self.name) + " (" + str(self.year) + ")"
+
+class Review(models.Model):
+    text = models.CharField(default='', blank=True, max_length=250)
+    stars = models.IntegerField(default=3)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)

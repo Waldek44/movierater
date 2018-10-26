@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Movie, ExtraInfo
+from .models import Movie, ExtraInfo, Review
 
 
 # inna fajna forma rejestrowania modelu w panelu admina
@@ -14,3 +14,4 @@ class MovieAdmin(admin.ModelAdmin):
     ordering = ('-imdb_rating', '-year')
 
 admin.site.register(ExtraInfo)
+admin.site.register(Review)
