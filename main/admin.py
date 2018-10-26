@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Movie, ExtraInfo, Review
+from .models import Movie, ExtraInfo, Review, Aktor
 
 
 # inna fajna forma rejestrowania modelu w panelu admina
@@ -15,3 +15,4 @@ class MovieAdmin(admin.ModelAdmin):
 
 admin.site.register(ExtraInfo)
 admin.site.register(Review)
+admin.site.register(Aktor)

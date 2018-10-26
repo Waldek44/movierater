@@ -40,3 +40,8 @@ class Review(models.Model):
     text = models.CharField(default='', blank=True, max_length=250)
     stars = models.IntegerField(default=3)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+
+class Aktor(models.Model):
+    imie = models.CharField(max_length=55)
+    nazwisko = models.CharField(max_length=55)
+    movie = models.ManyToManyField(Movie)
